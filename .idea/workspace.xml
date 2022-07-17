@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e458c6a6-3023-49a1-ba92-d4f10a7abe24" name="Changes" comment="git vien">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conference/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/conference/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/search_form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_data/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_data/admin.py" afterDir="false" />
-    </list>
+    <list default="true" id="e458c6a6-3023-49a1-ba92-d4f10a7abe24" name="Changes" comment="git vien" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
