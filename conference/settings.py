@@ -82,17 +82,39 @@ WSGI_APPLICATION = 'conference.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'conference',
+#         'USER': 'postgres',
+#         'PASSWORD': '119C1332',
+#         'HOST': "localhost",
+#         'PORT': "5432"
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'conference',
-        'USER': 'postgres',
-        'PASSWORD': '119C1332',
-        'HOST': "localhost",
+        'NAME': 'daivh9l4vmuaia',
+        'USER': 'ggimjceibcgasa',
+        'PASSWORD': 'c8e5b0b32948a99ec506a6f38e303593e1c24be6c5bfa2a1065abc50aa1eb655',
+        'HOST': "ec2-52-205-61-230.compute-1.amazonaws.com",
         'PORT': "5432"
     }
 }
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'ocdpkbkt',
+#         'USER': 'ocdpkbkt',
+#         'PASSWORD': 'oPuue042QK_zBnahri3BUoT3KXVJGGu1',
+#         'HOST': "tyke.db.elephantsql.com",
+#         'PORT': "5432"
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import SectionNumber, Author, ScientificDirector, Thesis, ThesisAll
-from modeltranslation.admin import TranslationAdmin
 from django.template.loader import get_template
 from user_data.forms import ThesisForm
 from django.utils.safestring import mark_safe
