@@ -1,16 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.utils.decorators import method_decorator
+
 from .models import *
 from .serializers import *
-from django.views import View
+from .forms import CreateUserForm
+
 from django.views.generic import ListView, DetailView
 from rest_framework import generics
 from rest_framework import mixins
+from django.views import View
 from rest_framework import viewsets
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.parsers import FormParser, MultiPartParser
 
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
+
+
+def BasePage(request):
+    context = {}
+    return render(request, 'base.html', context)
 
 
 class SectionNumberList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
@@ -31,8 +46,8 @@ class SectionNumberList(generics.GenericAPIView, mixins.ListModelMixin, mixins.C
     @swagger_auto_schema(operation_summary='добавить новую секцию')
     def post(self, request):
         return self.create(request)
-    
-   
+
+
 class SectionNumberDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
                            mixins.DestroyModelMixin):
     """
@@ -103,7 +118,7 @@ class ScientificDirectorDetails(generics.GenericAPIView, mixins.RetrieveModelMix
     def delete(self, request, pk):
         return self.destroy(request, pk=pk)
     
-    
+
 class AuthorList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
     """
      get:
@@ -199,5 +214,3 @@ class ThesisDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.U
     @swagger_auto_schema(operation_summary='удалить данные о конкретном тезисе')
     def delete(self, request, pk):
         return self.destroy(request, pk=pk)
-
-

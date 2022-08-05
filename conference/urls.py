@@ -39,11 +39,11 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path("", include("user_data.urls")),
-    path("", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui')
+    path("docs", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
 
-
 if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

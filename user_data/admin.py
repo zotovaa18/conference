@@ -47,7 +47,7 @@ class ThesisAdmin(admin.ModelAdmin):
                     "analogue", "plan")
 
     list_filter = ("sec_num",) # фильтрация по категориям
-    search_fields = ("authors__fio_short__iregex", "id",) # поиск (в таблице категории по полю название)
+    search_fields = ("authors__fio_short__iregex", "id",) # поиск
     inlines = (AuthorInline, ScientificDirectorInline)
     save_on_top = True #кнопка сохранить сверху теперь
     readonly_fields = ('author_inline', 'scientific_director_inline') # method as readonly field
