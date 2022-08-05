@@ -137,13 +137,14 @@ class ThesisAdmin(admin.ModelAdmin):
                     "novelty", "justification", "options", "requirements","protection", "application", "budget",
                     "analogue", "plan")
         for row in rows:
-            row_num += 1
-            for col_num in range(len(row)):
-                if col_num == 10:
-                    print(row[col_num])
-                    ws.write(row_num, col_num, "'"+row[col_num], font_style)
-                else:
-                    ws.write(row_num, col_num, row[col_num], font_style)
+            print(row[0])
+            if row[0] in list(queryset.values_list('id',flat=True)):
+                row_num += 1
+                for col_num in range(len(row)):
+                    if col_num == 10:
+                        ws.write(row_num, col_num, "'"+row[col_num], font_style)
+                    else:
+                        ws.write(row_num, col_num, row[col_num], font_style)
 
         wb.save(response)
         return response
