@@ -28,13 +28,14 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class ThesisWriteSerializer(serializers.ModelSerializer):
-    #authors = AuthorSerializer(many=True)"director", 'authors'
-    #director = ScientificDirectorSerializer(many=False)
+    authors = AuthorSerializer(many=True)
+    director = ScientificDirectorSerializer(many=False)
 
     class Meta:
         model = Thesis
-        fields = ["id", "code", "comment", "title", "sec_num", "file1", "file2", "cont_fio", "cont_phone_number",
-                  "cont_email", "cleaver", "name_project", "aim", "purpose", "novelty", "justification", "options",
+        fields = ["id", "code", "comment", "title", "sec_num",  'authors', "cont_fio", "cont_phone_number",
+                  "cont_email", "director", "file1", "file2",
+                  "cleaver", "name_project", "aim", "purpose", "novelty", "justification", "options",
                   "requirements", "protection", "application", "budget", "analogue", "plan", ]
 
     # def create(self, validated_data):
@@ -72,5 +73,7 @@ class ThesisWriteSerializer(serializers.ModelSerializer):
 
 
 class ThesisReadSerializer(serializers.ModelSerializer):
+    sec_num = SectionNumberSerializer()
+
     class Meta(ThesisWriteSerializer.Meta):
         depth = 1
