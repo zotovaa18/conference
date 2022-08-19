@@ -85,8 +85,8 @@ class Author(models.Model):
     status = models.TextField("Статус", help_text='Пример: бакалавр 3 курс')
     phone_number = PhoneNumberField("Телефон", help_text='Пример: +79160003333', max_length=12)
     email = models.EmailField("Email", help_text='Пример: mail@hse.ru')
-    organization = models.TextField("Организация", help_text='НИУ ВШЭ')
-    faculty = models.TextField("Факультет", help_text='МИЭМ НИУ ВШЭ')
+    organization = models.TextField("Организация", help_text='Пример: НИУ ВШЭ')
+    faculty = models.TextField("Факультет", help_text='Пример: МИЭМ НИУ ВШЭ')
     department = models.TextField("Департамент")
     city = models.TextField("Город")
     thesis = models.ForeignKey(Thesis, on_delete=models.CASCADE, verbose_name="Тезис", related_name="authors",

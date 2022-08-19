@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e458c6a6-3023-49a1-ba92-d4f10a7abe24" name="Changes" comment="git 05.08">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_data/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_data/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_data/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_data/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

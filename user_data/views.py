@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.decorators import method_decorator
+from rest_framework.decorators import schema
 
 from .models import *
 from .serializers import *
@@ -43,9 +44,9 @@ class SectionNumberList(generics.GenericAPIView, mixins.ListModelMixin, mixins.C
     def get(self, request):
         return self.list(request)
 
-    # @swagger_auto_schema(operation_summary='добавить новую секцию')
-    # def post(self, request):
-    #     return self.create(request)
+    @swagger_auto_schema(operation_summary='добавить новую секцию')
+    def post(self, request):
+        return self.create(request)
 
 
 class SectionNumberDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
@@ -65,13 +66,15 @@ class SectionNumberDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, m
     def get(self, request, pk):
         return self.retrieve(request, pk=pk)
 
-    # @swagger_auto_schema(operation_summary='получить список лексем')
-    # def put(self, request, pk):
-    #     return self.update(request, pk=pk)
-    #
-    # @swagger_auto_schema(operation_summary='получить список лексем')
-    # def delete(self, request, pk):
-    #     return self.destroy(request, pk=pk)
+    @swagger_auto_schema(operation_summary='получить список лексем', auto_schema=None)
+    @schema(None)
+    def put(self, request, pk):
+        return self.update(request, pk=pk)
+
+    @swagger_auto_schema(operation_summary='получить список лексем', auto_schema=None)
+    @schema(None)
+    def delete(self, request, pk):
+        return self.destroy(request, pk=pk)
 
 
 class ScientificDirectorList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
@@ -88,9 +91,9 @@ class ScientificDirectorList(generics.GenericAPIView, mixins.ListModelMixin, mix
     def get(self, request):
         return self.list(request)
 
-    # @swagger_auto_schema(operation_summary='добавить нового научного руководителя тезиса')
-    # def post(self, request):
-    #     return self.create(request)
+    @swagger_auto_schema(operation_summary='добавить нового научного руководителя тезиса')
+    def post(self, request):
+        return self.create(request)
 
 
 class ScientificDirectorDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
@@ -110,13 +113,13 @@ class ScientificDirectorDetails(generics.GenericAPIView, mixins.RetrieveModelMix
     def get(self, request, pk):
         return self.retrieve(request, pk=pk)
 
-    # @swagger_auto_schema(operation_summary='изменить данные о конкретном научном руководителе')
-    # def put(self, request, pk):
-    #     return self.update(request, pk=pk)
-    #
-    # @swagger_auto_schema(operation_summary='удалить данные о конкретном научном руководителе')
-    # def delete(self, request, pk):
-    #     return self.destroy(request, pk=pk)
+    @swagger_auto_schema(operation_summary='изменить данные о конкретном научном руководителе')
+    def put(self, request, pk):
+        return self.update(request, pk=pk)
+
+    @swagger_auto_schema(operation_summary='удалить данные о конкретном научном руководителе')
+    def delete(self, request, pk):
+        return self.destroy(request, pk=pk)
     
 
 class AuthorList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
@@ -133,9 +136,9 @@ class AuthorList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateMo
     def get(self, request):
         return self.list(request)
 
-    # @swagger_auto_schema(operation_summary='добавить нового автора тезиса')
-    # def post(self, request):
-    #     return self.create(request)
+    @swagger_auto_schema(operation_summary='добавить нового автора тезиса')
+    def post(self, request):
+        return self.create(request)
 
 
 class AuthorDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
@@ -155,13 +158,13 @@ class AuthorDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.U
     def get(self, request, pk):
         return self.retrieve(request, pk=pk)
 
-    # @swagger_auto_schema(operation_summary='изменить данные о конкретном авторе тезиса')
-    # def put(self, request, pk):
-    #     return self.update(request, pk=pk)
-    #
-    # @swagger_auto_schema(operation_summary='удалить данные о конкретном авторе тезиса')
-    # def delete(self, request, pk):
-    #     return self.destroy(request, pk=pk)
+    @swagger_auto_schema(operation_summary='изменить данные о конкретном авторе тезиса')
+    def put(self, request, pk):
+        return self.update(request, pk=pk)
+
+    @swagger_auto_schema(operation_summary='удалить данные о конкретном авторе тезиса')
+    def delete(self, request, pk):
+        return self.destroy(request, pk=pk)
 
 
 class ThesisList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
@@ -184,10 +187,10 @@ class ThesisList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateMo
     @swagger_auto_schema(operation_summary='получить список тезисов')
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
-    #
-    # @swagger_auto_schema(operation_summary='добавить новый тезис')
-    # def post(self, request, *args, **kwargs):
-    #     return self.create(request, *args, **kwargs)
+
+    @swagger_auto_schema(operation_summary='добавить новый тезис', auto_schema=None)
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
 
 
 class ThesisDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
@@ -207,10 +210,10 @@ class ThesisDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.U
     def get(self, request, pk):
         return self.retrieve(request, pk=pk)
 
-    # @swagger_auto_schema(operation_summary='изменить данные в конкретном тезисе')
-    # def put(self, request, pk):
-    #     return self.update(request, pk=pk)
-    #
-    # @swagger_auto_schema(operation_summary='удалить данные о конкретном тезисе')
-    # def delete(self, request, pk):
-    #     return self.destroy(request, pk=pk)
+    @swagger_auto_schema(operation_summary='изменить данные в конкретном тезисе')
+    def put(self, request, pk):
+        return self.update(request, pk=pk)
+
+    @swagger_auto_schema(operation_summary='удалить данные о конкретном тезисе')
+    def delete(self, request, pk):
+        return self.destroy(request, pk=pk)
