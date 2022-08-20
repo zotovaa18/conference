@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.utils.decorators import method_decorator
 from rest_framework.decorators import schema
 
 from .models import *
 from .serializers import *
-from .forms import CreateUserForm
 
 from django.views.generic import ListView, DetailView
 from rest_framework import generics
@@ -15,11 +13,6 @@ from rest_framework import viewsets
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.parsers import FormParser, MultiPartParser
-
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
-
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 

@@ -38,39 +38,6 @@ class ThesisWriteSerializer(serializers.ModelSerializer):
                   "cleaver", "name_project", "aim", "purpose", "novelty", "justification", "options",
                   "requirements", "protection", "application", "budget", "analogue", "plan", ]
 
-    # def create(self, validated_data):
-    #     authors_data = validated_data.pop('authors')
-    #     director_data = validated_data.pop('director')
-    #     thesis = Thesis.objects.create(**validated_data)
-    #     for author in authors_data:
-    #         a = Author.objects.create(**author, thesis=thesis)
-    #         a.save()
-    #     for dir in director_data:
-    #         d = ScientificDirector.objects.create(**dir, thesis=thesis)
-    #         d.save()
-    #     return thesis
-
-    # def update(self, instance, validated_data):
-    #     lessons_data = validated_data.get('lesson_info')
-    #     instance.save()
-    # 
-    #     for lesson_data in lessons_data:
-    #         les_id = lesson_data.get('id_les', None)
-    #         if les_id:
-    #             lesson = Lessons.objects.get(id_les=les_id)
-    #             lesson.name_les = lesson_data.get('name_les', lesson.name_les)
-    #             lesson.lessonblock = lesson_data('lessonblock', instance.id_lb)
-    #             lesson.video = lesson_data.get('video', lesson.video)
-    #             lesson.video_st = lesson_data.get('video_st', lesson.video_st)
-    #             lesson.lex_st = lesson_data.get('lex_st', lesson.lex_st)
-    #             lesson.phr_st = lesson_data.get('phr_st', lesson.phr_st)
-    #             lesson.dialog_st = lesson_data.get('dialog_st', lesson.dialog_st)
-    #             lesson.rules_st = lesson_data.get('rules_st', lesson.rules_st)
-    #             lesson.save()
-    #         else:
-    #             Lessons.objects.create(**lesson_data, lessonblock=instance)
-    #     return instance
-
 
 class ThesisReadSerializer(serializers.ModelSerializer):
     sec_num = SectionNumberSerializer()

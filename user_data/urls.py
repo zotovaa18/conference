@@ -3,8 +3,6 @@ from .views import *
 
 urlpatterns = [
     path('', BasePage, name='base'),
-
-
     path("section-number/", SectionNumberList.as_view(), name='section_number'),
     path("section-number/<int:pk>/", SectionNumberDetails.as_view(), name="section_number_detail"),
     path("scientific-director/", ScientificDirectorList.as_view(), name='scientific_director'),
